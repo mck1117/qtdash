@@ -14,12 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    BeagleboneCanInterface.cpp \
-    CanInterface.cpp
+    can/BeagleboneCanInterface.cpp \
+    can/CanInterface.cpp
 
 HEADERS  += mainwindow.h \
-    BeagleboneCanInterface.h \
-    CanInterface.h
+    can/BeagleboneCanInterface.h \
+    can/CanInterface.h
 
 FORMS    += mainwindow.ui
 
