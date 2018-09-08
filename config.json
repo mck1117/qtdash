@@ -1,0 +1,46 @@
+{
+  "interface": {
+    "type": "serial",
+    "config": {
+      "port": "COM4",
+      "baudrate": 115200
+    }
+  },
+  "channels": {
+    "CLT": {
+      "friendlyName": "Coolant Temp",
+      "units": "C",
+      "id": 135,
+      "offset": 2,
+      "length": 2,
+      "precision": 2,
+      "bigEndian": true,
+      "converter": {
+        "multiply": 1.0,
+        "divide": 100
+      },
+      "limits": {
+        "min": -20,
+        "max": 120,
+        "warningLow": 60,
+        "warningHigh": 100,
+        "cautionHigh": 110
+      }
+    },
+    "IAT": {
+      "friendlyName": "Intake Air Temperature",
+      "units": "C",
+      "id": 135,
+      "offset": 4,
+      "length": 2,
+      "precision": 1,
+      "bigEndian": true,
+      "limits": {
+        "min": 0,
+        "max": 80,
+        "warningHigh": 50,
+        "cautionHigh": 70
+      }
+    }
+  }
+}
