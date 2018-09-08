@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     data/DataChannel.cpp \
     data/Converter.cpp \
     data/Limits.cpp \
-    data/ChannelProcessor.cpp
+    data/ChannelProcessor.cpp \
+    Logger.cpp
 
 HEADERS  += mainwindow.h \
     can/SerialCanInterface.h \
@@ -29,7 +30,8 @@ HEADERS  += mainwindow.h \
     data/DataChannel.h \
     data/Converter.h \
     data/Limits.h \
-    data/ChannelProcessor.h
+    data/ChannelProcessor.h \
+    Logger.h
 
 FORMS    += mainwindow.ui
 
