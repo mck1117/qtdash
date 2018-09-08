@@ -14,12 +14,22 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    can/BeagleboneCanInterface.cpp \
-    can/CanInterface.cpp
+    can/SerialCanInterface.cpp \
+    can/CanInterface.cpp \
+    config/JsonConfigured.cpp \
+    data/DataChannel.cpp \
+    data/Converter.cpp \
+    data/Limits.cpp \
+    data/ChannelProcessor.cpp
 
 HEADERS  += mainwindow.h \
-    can/BeagleboneCanInterface.h \
-    can/CanInterface.h
+    can/SerialCanInterface.h \
+    can/CanInterface.h \
+    config/JsonConfigured.h \
+    data/DataChannel.h \
+    data/Converter.h \
+    data/Limits.h \
+    data/ChannelProcessor.h
 
 FORMS    += mainwindow.ui
 
