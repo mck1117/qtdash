@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-	// This hides the window boredr/title bar/etc
+	// This hides the window border/title bar/etc
 	this->setWindowFlags(Qt::CustomizeWindowHint);
 }
 
