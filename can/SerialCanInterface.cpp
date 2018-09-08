@@ -3,6 +3,8 @@
 #ifdef WIN32
 #include <Windows.h>
 #else
+#include <unistd.h>
+#include <fcntl.h>
 
 #endif
 
@@ -30,6 +32,8 @@ struct SerialPortRef
 
 SerialPortRef SerialPortInit(std::string portName, int baud)
 {
+	SerialPortRef r;
+
 #ifdef WIN32
 	HANDLE hSerial = CreateFileA(portName.c_str(),
 						GENERIC_READ | GENERIC_WRITE,
@@ -61,12 +65,18 @@ SerialPortRef SerialPortInit(std::string portName, int baud)
 
 	result = SetCommState(hSerial, &dcb);
 
-	SerialPortRef r;
 	r.handle = hSerial;
 	return r;
 #else
+	int port = open(portName.c_str(), O_RDWR | O_NOCTTY);
 
+
+
+
+	r.sp = port;
 #endif
+
+	return r;
 }
 
 void SerialPortRead(SerialPortRef sp, void* buffer, size_t length)
@@ -75,12 +85,11 @@ void SerialPortRead(SerialPortRef sp, void* buffer, size_t length)
 	DWORD bytesRead = 0;
 	OVERLAPPED ovRead;
 
-	
 	bool rfRet = ReadFile(sp.handle, buffer, length, &bytesRead, NULL);
 
-
+	return bytesRead;
 #else
-
+	return read(sp.sp, buffer, length);
 #endif
 }
 
