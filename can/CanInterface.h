@@ -10,20 +10,23 @@ typedef struct can_frame_e
     uint8_t data[8];
 } can_frame_t;
 
-typedef struct CanInterfaceCallbacks
+class CanInterfaceCallbacks
 {
-    void (*OnFrameReceived)(can_frame_t frame);
-} CanInterfaceCallbacks_t;
+	friend class CanInterface;
+
+protected:
+	virtual void OnFrameReceived(const can_frame_t& frame) = 0;
+};
 
 class CanInterface
 {
 private:
-    CanInterfaceCallbacks_t* _callbacks = nullptr;
+    CanInterfaceCallbacks* _callbacks = nullptr;
 protected:
-    virtual void OnFrameReceived(can_frame_t frame) final;
+    virtual void OnFrameReceived(const can_frame_t& frame) final;
 public:
     CanInterface();
-    virtual void SetCallbacks(CanInterfaceCallbacks_t* callbacks) final;
+    virtual void SetCallbacks(CanInterfaceCallbacks* callbacks) final;
 };
 
 #endif // CanInterface_H
