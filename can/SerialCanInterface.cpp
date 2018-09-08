@@ -79,11 +79,10 @@ SerialPortRef SerialPortInit(std::string portName, int baud)
 	return r;
 }
 
-int SerialPortRead(SerialPortRef sp, void* buffer, size_t length)
+int SerialPortRead(SerialPortRef sp, void* buffer, int length)
 {
 #if WIN32
 	DWORD bytesRead = 0;
-	OVERLAPPED ovRead;
 
 	bool rfRet = ReadFile(sp.handle, buffer, length, &bytesRead, NULL);
 
