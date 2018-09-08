@@ -6,7 +6,7 @@
 #include "Logger.h"
 #include "data/ChannelProcessor.h"
 #include "data/DataChannel.h"
-#include "nlohmann\json.hpp"
+#include "nlohmann/json.hpp"
 #include "can/TestCanInterface.h"
 #include "can/SerialCanInterface.h"
 
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 {
 	nlohmann::json j;
 
-	{
+    {
 		std::ifstream jfile("config.json");
 		jfile >> j;
 	}

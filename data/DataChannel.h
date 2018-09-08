@@ -4,7 +4,7 @@
 
 #include <string>
 #include <mutex>
-#include "can\CanInterface.h"
+#include "can/CanInterface.h"
 
 #include "Converter.h"
 #include "Limits.h"

@@ -3,7 +3,7 @@
 
 #include "CanInterface.h"
 
-#include "nlohmann\json.hpp"
+#include "nlohmann/json.hpp"
 
 #include <thread>
 

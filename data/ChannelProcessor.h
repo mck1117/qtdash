@@ -7,7 +7,7 @@
 
 #include "can/CanInterface.h"
 
-#include "nlohmann\json.hpp"
+#include "nlohmann/json.hpp"
 
 class DataChannel;
 
