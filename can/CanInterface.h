@@ -5,7 +5,7 @@
 
 typedef struct can_frame_e
 {
-    uint16_t id;
+    uint32_t id;
     uint8_t length;
     uint8_t data[8];
 } can_frame_t;

@@ -17,7 +17,7 @@ private:
 	std::string _name;
 	std::string _friendlyName;
 
-	uint16_t _id;
+	uint32_t _id;
 	uint8_t _offset, _length;
 	bool _bigEndian;
 

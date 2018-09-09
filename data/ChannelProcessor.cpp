@@ -43,6 +43,8 @@ void ChannelProcessor::AddCanInterface(CanInterface& iface)
 
 void ChannelProcessor::OnFrameReceived(const can_frame_t& frame)
 {
+	// This needs a lock because multiple CAN interfaces might be active
+	// and potentially try to hit us at the same time
 	std::lock_guard<std::mutex> lock(_mutex);
 
 	// Grab an iterator for all frames that match this id
